@@ -107,6 +107,10 @@ body {
   padding: 5px 0;
 }
 
+.photoImage:hover {
+  opacity: 0.5;
+}
+
 @media screen and (min-width: 600px) {
   .searchInput {
     width: 300px;

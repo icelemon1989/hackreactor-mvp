@@ -47,10 +47,8 @@ class SearchBar extends React.Component {
     fetchPicsFromFlickr(flickr_url, searchWord) {
         return axios.get(flickr_url)
             .then(res => {
-                console.log("==================", res.data.photos.pages);
                 this.setState({ total_page: res.data.photos.pages > 800 ? 800 : res.data.photos.pages })
                 this.props.getPhotos(res.data.photos.photo);
-                console.log("---------------", this.state.total_page)
             })
             .catch(err => {
                 console.error("Can't find pictures with keyword " + searchWord + "! The Error is " + err);
@@ -69,6 +67,7 @@ class SearchBar extends React.Component {
             extras: "url_s",
             format: "json",
             page: randomPage,
+            safe_search: 1,
             nojsoncallback: 1
         });
         return base_url + params;
@@ -78,7 +77,7 @@ class SearchBar extends React.Component {
         const isSearchBefore = this.state.searchBefore;
         let randomButton = null;
         if (isSearchBefore) {
-            randomButton = <button className="randomButton" onClick={this.handleRandomButtonClick}>More</button>
+            randomButton = <button className="randomButton" onClick={this.handleRandomButtonClick}>More {this.state.previousWord}</button>
         }
         return (
             <form className="SearchBarForm" onSubmit={this.handleSubmit}>
