@@ -4,11 +4,16 @@
   "private": true,
   "dependencies": {
     "axios": "^0.15.3",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.8.6",
+    "promise": "^7.1.1",
     "query-string": "^4.3.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
+    "nodemon": "^1.11.0",
     "react-scripts": "0.9.4"
   },
   "scripts": {

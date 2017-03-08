@@ -54,6 +54,11 @@ body {
     cursor: pointer;
 }
 
+.SearchBarForm .randomButton {
+  width: auto;
+  text-align : center;
+}
+
 .SearchBarForm button:hover {
     background-color:	#C71585;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import querystring from 'query-string';
+import utilies from '../utilies.js';
 import '../../public/style.css';
 
 class SearchBar extends React.Component {
@@ -12,7 +12,6 @@ class SearchBar extends React.Component {
             total_page: 1,
             searchBefore: false
         }
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleRandomButtonClick = this.handleRandomButtonClick.bind(this);
@@ -26,7 +25,7 @@ class SearchBar extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const searchWord = this.state.searchWord;
-        let flickr_url = this.createFlickrUrl(searchWord, this.state.total_page);
+        let flickr_url = utilies.createFlickrUrl(searchWord, this.state.total_page);
         console.log("first time url--------", flickr_url);
         this.setState({
             previousWord: searchWord,
@@ -39,7 +38,7 @@ class SearchBar extends React.Component {
     handleRandomButtonClick(event) {
         event.preventDefault();
         const searchWord = this.state.previousWord;
-        let flickr_url = this.createFlickrUrl(searchWord, this.state.total_page);
+        let flickr_url = utilies.createFlickrUrl(searchWord, this.state.total_page);
         console.log("random url-------", flickr_url);
         this.fetchPicsFromFlickr(flickr_url, searchWord);
     }
@@ -53,24 +52,6 @@ class SearchBar extends React.Component {
             .catch(err => {
                 console.error("Can't find pictures with keyword " + searchWord + "! The Error is " + err);
             });
-    }
-
-    createFlickrUrl(searchText, totalPage) {
-        const flickr_api_key = 'f03120f221349459a3cd84b143929bdc';
-        const base_url = "https://api.flickr.com/services/rest/?";
-        const randomPage = totalPage === 1 ? 1 : Math.floor(Math.random() * totalPage);
-        const params = querystring.stringify({
-            method: "flickr.photos.search",
-            api_key: flickr_api_key,
-            text: searchText,
-            per_page: "50",
-            extras: "url_s",
-            format: "json",
-            page: randomPage,
-            safe_search: 1,
-            nojsoncallback: 1
-        });
-        return base_url + params;
     }
 
     render() {
