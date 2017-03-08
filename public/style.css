@@ -16,7 +16,7 @@ body {
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: #FFB6C1;
 }
 
 .App-intro {
@@ -26,4 +26,122 @@ body {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.SearchBarForm {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.SearchBarForm input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0 20;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.SearchBarForm button {
+    width: 10%;
+    background-color: #FF1493;
+    color: white;
+    padding: 14px 20px;
+    margin: 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.SearchBarForm button:hover {
+    background-color:	#C71585;
+}
+
+.photoList {
+  max-width: 1200px;
+  line-height: 0;
+
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+
+  -webkit-column-gap: 0px;
+  -moz-column-gap: 0px;
+  column-gap: 0px;
+  
+  margin: auto;
+  padding: 10px 0 30px 0;
+  overflow: auto;
+}
+
+.imageBox {
+  -webkit-animation: fade-in 1.5s; /* Safari 4+ */
+  -moz-animation:    fade-in 1.5s; /* Fx 2+ */
+  -o-animation:      fade-in 1.5s; /* Opera 12+ */
+  animation:         fade-in 1.5s;
+}
+
+
+
+@-webkit-keyframes fade-in {
+  0%   { opacity: 0; transform: scale(0.5);}
+  100% { opacity: 1; transform: scale(1);}
+}
+@-moz-keyframes fade-in {
+  0%   { opacity: 0; transform: scale(0.5);}
+  100% { opacity: 1; transform: scale(1);}
+}
+@-o-keyframes fade-in {
+  0%   { opacity: 0; transform: scale(0.5);}
+  100% { opacity: 1; transform: scale(1);}
+}
+@keyframes fade-in {
+  0%   { opacity: 0; transform: scale(0.5);}
+  100% { opacity: 1; transform: scale(1);}
+}
+
+.photoImage {
+  width: 99% !important;
+  height: auto !important;
+  padding: 5px 0;
+}
+
+@media screen and (min-width: 600px) {
+  .searchInput {
+    width: 300px;
+  }
+
+  .photoList {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .photoList {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .photoList {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+  }
+}
+.Footer {
+  display: block;
+  background-color: #f2f2f2;
+}
+.Footer ul {
+  list-style-type: none;
+}
+.Footer li {
+  display: inline-block;
+  margin: 20 20 20 20;
 }
